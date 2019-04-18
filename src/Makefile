@@ -1,4 +1,4 @@
-MODULES=game command state main
+MODULES=game state= 
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)
