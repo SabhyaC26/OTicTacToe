@@ -170,20 +170,12 @@ let rec process move_num st : t =
             then begin print_endline "Game over! Crosses Win"; exit 0 end;
           process (move_num + 1) (new_state)
 
-(** [play_game f] starts the adventure in file [f]. *)
-let play_game () move_num =
-  process move_num init
-
-(** [main ()] prompts for the game to play, then starts it. *)
-let rec main () =
-  ANSITerminal.(print_string [red]
-                  "\n\nWelcome to OTicTacToe.\n");
+let main () =
+  print_string "\n\nWelcome to OTicTacToe.\n";
   print_endline "Press enter to begin!\n";
   print_string  "> ";
   match read_line () with
-  | exception End_of_file -> ()
   | "quit" -> print_endline ("Adios!"); exit 0;
-  | _ -> play_game () 0
+  | _ -> process 0 init
 
-(* Execute the game engine. *)
-let () = main ()
+let final_state = main ()
