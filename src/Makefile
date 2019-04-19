@@ -1,4 +1,4 @@
-MODULES=game state= 
+MODULES=game
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)
@@ -11,12 +11,8 @@ default: build
 
 build:
 	$(OCAMLBUILD) $(OBJECTS)
-
-test:
-	$(OCAMLBUILD) -tag 'debug' $(TEST) && ./$(TEST)
-
 play:
-	$(OCAMLBUILD) $(MAIN) && ./$(MAIN)
+	$(OCAMLBUILD) $(MAIN) && ./$(GAME)
 
 clean:
 	ocamlbuild -clean
